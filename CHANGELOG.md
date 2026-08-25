@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.7.0 — Voz modular, áudio e automação resiliente
+## [0.6.9] — Voz modular, áudio e automação resiliente
 - Voice Gateway ganhou loop cooperativo, reconexão exponencial e processamento de mensagens.
 - Voz ganhou IP Discovery, fontes WAV/PCM/silêncio, fila de áudio limitada, gravador WAV e adaptadores opcionais de Opus/criptografia.
 - `Agendador`, `TarefaAgendada`, `PoliticaRetentativa` e `FilaAssincrona` adicionados com backoff, jitter, cancelamento e consumidores concorrentes.
@@ -15,7 +15,7 @@
 - Gateway passou a negociar `compress=zlib-stream` e decodificar pacotes binários zlib, com teste offline do fluxo compactado.
 - A suíte de contratos offline alcançou 52 testes aprovados.
 - Coordenação distribuída offline-first adicionada com `Lease`, `TransporteCoordenação` e `CoordenaçãoLocal`, incluindo exclusividade, épocas monotônicas, renovação, expiração e publicação de estado.
-- O pacote passou a incluir `py.typed` conforme PEP 561; o wheel 0.7.0 foi validado com o marcador presente.
+- O pacote passou a incluir `py.typed` conforme PEP 561; o wheel 0.6.9 foi validado com o marcador presente.
 - A suíte de contratos offline alcançou 64 testes aprovados.
 - Supervisor de shards passou a aceitar transporte de coordenação com lease por shard, publicação de estado e espera cooperativa por posse.
 - Adicionados `FiltroSegredos`, `token_redigido` e marcador `py.typed` para segurança e suporte a verificadores estáticos.
@@ -48,33 +48,33 @@
 - Validação cruzada executada em CPython 3.11.15 e 3.13.14: 83 testes aprovados e 1 ignorado em cada versão porque `libopus` não estava disponível no ambiente; o fallback continua explícito.
 - `BufferJitter.avançar_sequencia()` permite descartar lacunas após timeout controlado pelo aplicativo e contabiliza perdas sem fabricar PCM; a suíte alcançou 85 testes aprovados. Interpolação e mixagem continuam fora do escopo.
 
-## 0.7.0 — Voz modular e transporte RTP
+### Voz modular e transporte RTP
 - `SessaoVoz`, `InformacoesVoz`, `PacoteRTP` e `TransporteUDP` adicionados em português.
 - Fluxo de Voice State Update, seleção de modo, heartbeat com `seq_ack`, SSRC e construção RTP preparado para codecs e criptografia injetáveis.
 - Atalhos `Bot.entrar_em_voz()`, `Bot.voz_do_servidor()` e `Bot.sair_da_voz()` adicionados.
 - Contratos offline de voz incluídos sem obrigar FFmpeg, Opus ou dependências nativas em ambientes móveis.
 
-## 0.7.0 — Identidade brasileira e diferenciais próprios
+### Identidade brasileira e diferenciais próprios
 - API principal priorizada em português; aliases em inglês permanecem apenas como compatibilidade opcional.
 - `Simulador` para testar Gateway, mensagens e interações sem token, WebSocket ou rede externa.
 - `diagnosticar()` e `bot.diagnostico_saude()` para validar configuração, intents, comandos, Views e saúde antes da conexão.
 - `Bot.criar_simulador()` integrado ao fluxo natural do Bot.
 
-## 0.7.0 — Ergonomia de produção do Bot
+### Ergonomia de produção do Bot
 - Aliases `add_view`, `get_guild`, `get_channel`, `get_user`, `wait_for`, `setup_hook`, `start` e `run` adicionados ao lifecycle e ao cache.
 - Logs automáticos de conexão, identificação, READY, reconexão, heartbeat, encerramento e erros.
 - Propriedades públicas `bot.user`, `bot.usuario`, `bot.me`, `bot.id`, `bot.servidores`, `bot.guilds`, `bot.canais`, `bot.latencia`, `bot.latencia_ms`, `bot.conectado`, `bot.estado_conexao` e `bot.ws`.
 - Cache local atualizado por READY, GUILD_CREATE/UPDATE/DELETE e CHANNEL_CREATE/UPDATE/DELETE.
 - Aliases `close()` e `wait_until_ready()` para lifecycle compatível.
 
-## 0.7.0 — Expansão REST, modelos e Gateway
+### Expansão REST, modelos e Gateway
 - Cliente REST ampliado com mensagens, reações, pins, threads, fóruns, permissões, membros, cargos, bans, auditoria, convites, webhooks, emojis, stickers, integrações, eventos agendados, Stage, automoderação, templates, soundboard, comandos de aplicação, entitlements, DMs e uploads multipart.
 - Modelos tolerantes e tipados para threads, tags de fórum, auditoria, convites, webhooks, eventos agendados, Stage, voz, presença, reações, automoderação, enquetes e conexões.
 - Catálogo de 71 dispatches Gateway com aliases em português e normalização opcional em objetos modelados, preservando o payload bruto para compatibilidade.
 - Erros REST passaram a carregar status, código Discord, erros de validação, rota, método e detalhes de rate limit.
 - Testes offline de contrato adicionados para payloads, rotas, uploads e despacho de eventos.
 
-## 0.7.0 — Marco de expansão
+### Marco de expansão
 - Comandos híbridos com callback compartilhado entre prefixo e slash.
 - Aliases `comando_slash` e `comando_hibrido` para a sintaxe portuguesa.
 - Interações com opções estruturadas, `adiar()`, Views em respostas e Views em follow-ups.

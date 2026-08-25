@@ -1,10 +1,10 @@
-# Contribuindo com o Pimcord 0.7.0
+# Contribuindo com o Pimcord 0.6.9
 
 O Pimcord é uma biblioteca assíncrona para bots Discord com API pública em português brasileiro. Contribuições devem preservar a clareza da sintaxe, a compatibilidade com Python 3.11 ou superior e a separação entre transporte, modelos, roteamento e regras da aplicação.
 
 ## Antes de abrir uma alteração
 
-Leia `ARQUITETURA_0.7.0.md`, `MATRIZ_0.7.0.md` e o README. A matriz distingue recursos implementados, parciais e planejados; uma proposta não deve apresentar uma área planejada como pronta.
+Leia `ARQUITETURA_0.7.0.md`, `MATRIZ_0.7.0.md` e o README. Esses dois arquivos preservam registros históricos da linha 0.7.0; a matriz distingue recursos implementados, parciais e planejados, e uma proposta não deve apresentar uma área planejada como pronta para a versão atual 0.6.9.
 
 ## Desenvolvimento local
 

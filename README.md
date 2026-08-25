@@ -10,7 +10,7 @@
 
 O projeto prioriza contratos explícitos, testes offline e uma experiência de desenvolvimento em português. A implementação existente é preservada neste repositório; esta publicação organiza o código, a documentação e os exemplos para facilitar revisão e contribuição.
 
-> **Status atual:** o `pyproject.toml` declara a versão `0.6.9`, Python `>=3.11` e dependência de runtime `aiohttp>=3.9,<4`. O changelog contém notas de evolução da linha `0.7.0`; qualquer mudança de versão deve ser feita como uma decisão de release, não inferida automaticamente.
+> **Status atual:** o `pyproject.toml` declara a versão `0.6.9`, Python `>=3.11` e dependência de runtime `aiohttp>=3.9,<4`. O changelog registra a evolução histórica do projeto e declara `0.6.9` como a versão atual; qualquer mudança de versão deve ser feita como uma decisão de release, não inferida automaticamente.
 
 ## Recursos principais
 

@@ -47,7 +47,7 @@ class ClienteHTTP:
                 timeout=self.timeout,
                 headers={
                     "Authorization": f"Bot {self.token}",
-                    "User-Agent": "Pimcord/0.7.0 (+https://github.com/pimcord/pimcord)",
+                    "User-Agent": "Pimcord/0.6.9 (+https://github.com/pimcord/pimcord)",
                 },
             )
 

@@ -1,4 +1,4 @@
-"""Exemplo integrado do Pimcord 0.7.0.
+"""Exemplo integrado do Pimcord 0.6.9.
 
 Este arquivo usa somente APIs presentes no núcleo atual e não executa
 nenhuma conexão quando apenas é importado.

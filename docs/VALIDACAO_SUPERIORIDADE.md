@@ -1,6 +1,6 @@
 # Validação de superioridade do Pimcord
 
-> Documento interno de prova. A versão 0.7.0 **não deve ser declarada superior ao discord.py** enquanto os bloqueadores marcados como abertos não forem encerrados com evidência executável.
+> **Documento histórico da linha 0.7.0.** A versão 0.7.0 **não deve ser declarada superior ao discord.py** enquanto os bloqueadores marcados como abertos não forem encerrados com evidência executável. A versão oficial atual do projeto é a 0.6.9.
 
 ## Critério de prova
 

@@ -1,4 +1,4 @@
-"""Exemplos de interações do Pimcord 0.7.0."""
+"""Exemplos de interações do Pimcord 0.6.9."""
 
 import pimcord
 

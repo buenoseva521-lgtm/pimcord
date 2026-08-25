@@ -11,7 +11,7 @@ body:
     id: versao
     attributes:
       label: Versão do Pimcord
-      placeholder: 0.7.0
+      placeholder: 0.6.9
     validations:
       required: true
   - type: textarea
