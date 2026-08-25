@@ -2,7 +2,7 @@
 
 [![Python](https://img.shields.io/badge/Python-%3E%3D3.11-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-0B3D2E.svg)](LICENSE)
-[![GitHub](https://img.shields.io/badge/GitHub-reposit%C3%B3rio%20open%20source-181717?logo=github&logoColor=white)](https://github.com/<SEU_USUARIO>/pimcord)
+[![GitHub](https://img.shields.io/badge/GitHub-reposit%C3%B3rio%20open%20source-181717?logo=github&logoColor=white)](https://github.com/buenoseva521-lgtm/pimcord)
 [![PyPI](https://img.shields.io/badge/PyPI-a%20publicar-lightgrey.svg)](https://pypi.org/project/pimcord/)
 [![Status](https://img.shields.io/badge/status-em%20desenvolvimento-D97706.svg)](CHANGELOG.md)
 
@@ -108,6 +108,6 @@ O Pimcord é distribuído sob a licença [MIT](LICENSE).
 
 | Recurso | Estado |
 | --- | --- |
-| Repositório GitHub | Placeholder até a criação/autorização do repositório: `https://github.com/<SEU_USUARIO>/pimcord`. |
+| Repositório GitHub | Repositório oficial: [github.com/buenoseva521-lgtm/pimcord](https://github.com/buenoseva521-lgtm/pimcord). |
 | Documentação oficial | [pimcorddocs-pvmazbtg.manus.space](https://pimcorddocs-pvmazbtg.manus.space). |
 | PyPI | Ainda não confirmado; não trate o link como prova de publicação. |
