@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Ambientes e distribuição
+.venv/
+.venv-ci/
+venv/
+env/
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# Testes e cobertura
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+
+# Configuração local e segredos
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# Bancos e artefatos locais
+*.db
+*.sqlite
+*.sqlite3
+*.wav
+*.log
+
+# Editores e sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

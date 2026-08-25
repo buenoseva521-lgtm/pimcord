@@ -1,0 +1,35 @@
+name: Relatar um bug
+description: Relate um comportamento reproduzível do Pimcord
+title: "[bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Antes de abrir, confirme que o problema reproduz na versão mais recente e que nenhum token aparece no relato.
+  - type: input
+    id: versao
+    attributes:
+      label: Versão do Pimcord
+      placeholder: 0.7.0
+    validations:
+      required: true
+  - type: textarea
+    id: reproducao
+    attributes:
+      label: Como reproduzir
+      description: Inclua o menor exemplo possível, sem tokens ou dados privados.
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Comportamento esperado
+    validations:
+      required: true
+  - type: textarea
+    id: observado
+    attributes:
+      label: Comportamento observado e traceback
+    validations:
+      required: true

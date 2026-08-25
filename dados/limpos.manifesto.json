@@ -1,0 +1,36 @@
+{
+  "categorias": {
+    "banco": 1,
+    "discord": 2,
+    "gateway": 4,
+    "permissoes": 1,
+    "pimcord": 27,
+    "python": 89,
+    "rest": 1,
+    "seguranca": 2,
+    "tarefas": 2,
+    "views": 1,
+    "voz": 3
+  },
+  "destino": "dados/limpos.jsonl",
+  "exemplos": 133,
+  "fontes": 109,
+  "niveis": {
+    "avancado": 78,
+    "intermediario": 55
+  },
+  "origem": "dados/brutos",
+  "rejeitados": {
+    "contrato_ou_seguranca": 6
+  },
+  "seed": 42,
+  "split_por_exemplo_fallback": false,
+  "splits": {
+    "teste": 20,
+    "treino": 92,
+    "validacao": 21
+  },
+  "tipos": {
+    "instrucao_codigo": 133
+  }
+}

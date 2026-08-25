@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pimcord"
+version = "0.6.9"
+description = "Biblioteca assíncrona em português para bots Discord"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Projeto Pimcord"}]
+dependencies = ["aiohttp>=3.9,<4"]
+
+[project.scripts]
+pimcord = "pimcord.cli:main"
+
+[project.optional-dependencies]
+testes = ["pytest>=8", "pytest-asyncio>=0.23"]
+voz = ["PyNaCl>=1.5", "cryptography>=42", "opuslib>=3.0"]
+
+[tool.setuptools.packages.find]
+include = ["pimcord*"]
+
+[tool.setuptools.package-data]
+pimcord = ["py.typed"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

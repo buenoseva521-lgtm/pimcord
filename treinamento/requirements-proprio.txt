@@ -1,0 +1,3 @@
+# Dependências opcionais para treinar/executar a PimcordIA própria.
+# Instale no ambiente de treino, não no runtime básico da biblioteca.
+torch>=2.2

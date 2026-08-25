@@ -1,0 +1,34 @@
+name: Propor recurso
+description: Proponha uma API ou capacidade nova para o Pimcord
+title: "[feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: Problema que o recurso resolve
+      description: Explique o caso de uso antes de sugerir a assinatura.
+    validations:
+      required: true
+  - type: textarea
+    id: proposta
+    attributes:
+      label: Proposta de API
+      description: Use nomes em português e mostre um exemplo de uso.
+    validations:
+      required: true
+  - type: textarea
+    id: impacto
+    attributes:
+      label: Impacto arquitetural
+      description: Informe quais módulos, eventos, modelos, testes e páginas seriam afetados.
+    validations:
+      required: true
+  - type: checkboxes
+    id: contrato
+    attributes:
+      label: Checklist
+      options:
+        - label: A proposta não depende de código copiado de outra biblioteca.
+        - label: A proposta pode ser testada sem token ou rede externa.
+        - label: A proposta inclui documentação em português.
