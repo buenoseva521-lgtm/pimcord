@@ -1,113 +1,153 @@
 # Pimcord
 
+[![CI](https://github.com/buenoseva521-lgtm/pimcord/actions/workflows/ci.yml/badge.svg)](https://github.com/buenoseva521-lgtm/pimcord/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-%3E%3D3.11-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![PyPI](https://img.shields.io/pypi/v/pimcord.svg)](https://pypi.org/project/pimcord/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-0B3D2E.svg)](LICENSE)
-[![GitHub](https://img.shields.io/badge/GitHub-reposit%C3%B3rio%20open%20source-181717?logo=github&logoColor=white)](https://github.com/buenoseva521-lgtm/pimcord)
-[![PyPI](https://img.shields.io/badge/PyPI-a%20publicar-lightgrey.svg)](https://pypi.org/project/pimcord/)
-[![Status](https://img.shields.io/badge/status-em%20desenvolvimento-D97706.svg)](CHANGELOG.md)
 
-**Pimcord** é uma biblioteca Python assíncrona para criação de bots Discord, com uma API em português e uma arquitetura composta por gateway, cliente REST, comandos, interações, modelos de recursos, voz, tarefas, persistência, segurança e diagnóstico.
+**Pimcord** é uma biblioteca Python assíncrona para criar bots Discord com uma API em português. A versão publicada atualmente é **0.6.9**.
 
-O projeto prioriza contratos explícitos, testes offline e uma experiência de desenvolvimento em português. A implementação existente é preservada neste repositório; esta publicação organiza o código, a documentação e os exemplos para facilitar revisão e contribuição.
+O projeto reúne ciclo de vida de bot, Gateway, cliente REST, comandos prefixados, slash e híbridos, eventos, modelos Discord, interações, Views e componentes, permissões, tarefas, persistência, segurança, diagnóstico, sharding, métricas e recursos experimentais de voz. A lista pública deve ser interpretada junto com o código e a referência da API; roadmaps e relatórios históricos não representam automaticamente funcionalidades disponíveis.
 
-> **Status atual:** o `pyproject.toml` declara a versão `0.6.9`, Python `>=3.11` e dependência de runtime `aiohttp>=3.9,<4`. O changelog registra a evolução histórica do projeto e declara `0.6.9` como a versão atual; qualquer mudança de versão deve ser feita como uma decisão de release, não inferida automaticamente.
+## Comece aqui
 
-## Recursos principais
+O caminho mais curto para criar um bot é:
 
-A superfície pública inclui o ciclo de vida de `Bot`, comandos prefixados, slash e híbridos, checks e cooldowns, eventos do gateway, cliente REST, modelos Discord, interações efêmeras, Views e componentes, OAuth2, webhooks, automoderação offline-first, cache local, SQLite, coordenação de workers, sharding, métricas, diagnóstico de saúde, segurança de segredos, tarefas assíncronas e áudio/voz com codecs opcionais.
+| Etapa | O que fazer |
+| --- | --- |
+| Entender | Leia o [guia de início](https://pimcorddocs-pvmazbtg.manus.space/comecar). |
+| Instalar | Use `pip install pimcord` em um ambiente virtual. |
+| Configurar | Guarde o token em `DISCORD_TOKEN` e ative somente os intents necessários. |
+| Construir | Comece pelo [primeiro bot](https://pimcorddocs-pvmazbtg.manus.space/guias/primeiro-bot). |
+| Consultar | Pesquise classes, funções e métodos no [catálogo da API](https://pimcorddocs-pvmazbtg.manus.space/api). |
+| Continuar | Escolha um [guia](https://pimcorddocs-pvmazbtg.manus.space/guias/comandos), uma [receita](https://pimcorddocs-pvmazbtg.manus.space/receitas/criar-comando) ou a [migração do discord.py](https://pimcorddocs-pvmazbtg.manus.space/migrar). |
 
-O pacote também contém áreas experimentais e especializadas. Elas permanecem no código original para não remover funcionalidades importantes, mas devem ser avaliadas separadamente antes de uma promessa de estabilidade ou publicação no PyPI.
+## Instalação
 
-## Instalação local
+A instalação recomendada para usuários é feita pelo PyPI:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install -e ".[testes]"
+python -m pip install pimcord
 ```
 
-A instalação de runtime pode ser feita sem as dependências de teste:
+O pacote requer **Python 3.11 ou superior**. Para confirmar a versão instalada:
 
 ```bash
-python -m pip install -e .
+python -c "import pimcord; print(pimcord.__version__)"
 ```
 
-A distribuição PyPI ainda não foi confirmada neste repositório. Quando o pacote for publicado, substitua este trecho pelo comando de instalação validado e remova o badge temporário de PyPI.
+Para atualizar uma instalação existente:
+
+```bash
+python -m pip install --upgrade pimcord
+```
+
+Clone e instalação editável são caminhos para contribuidores e ficam descritos na documentação de desenvolvimento, não substituem a instalação normal pelo PyPI.
 
 ## Primeiro bot
+
+O exemplo abaixo usa apenas APIs públicas confirmadas no pacote:
 
 ```python
 import os
 import pimcord
 
-intents = pimcord.Intents(
-    servidores=True,
-    mensagens=True,
-    conteudo_mensagens=True,
-)
+bot = pimcord.Bot(prefixo="!")
 
-bot = pimcord.Bot(prefixo="!", intents=intents)
-
-@bot.comando("ola", aliases=["oi"])
+@bot.comando("ola")
 async def ola(ctx):
-    await ctx.responder("Olá, mundo!")
+    await ctx.responder("Olá!")
 
 @bot.evento("pronto")
 async def pronto():
-    print("Bot conectado ao Discord")
+    print("Bot conectado")
 
 bot.iniciar(os.environ["DISCORD_TOKEN"])
 ```
 
-Mantenha o token em uma variável de ambiente e nunca o coloque em arquivos versionados, argumentos de shell, issues ou logs.
+Configure o segredo antes de executar:
+
+```bash
+export DISCORD_TOKEN="seu-token"
+python bot.py
+```
+
+Nunca publique o token no GitHub, em prints, issues, logs, argumentos de shell ou arquivos versionados. Se o valor vazar, revogue-o no portal do Discord e gere outro.
+
+## O que a biblioteca oferece
+
+A documentação oficial classifica os recursos conforme o que pode ser confirmado no código e nos metadados atuais:
+
+| Status | Interpretação |
+| --- | --- |
+| **Estável** | API pública coberta pelo contrato atual do pacote e pelos testes disponíveis. |
+| **Experimental** | API existente que pode depender do ambiente, de bibliotecas nativas ou de validação adicional. Voz e áudio entram nesta categoria. |
+| **Planejado** | Intenção registrada em roadmap ou relatório; não deve ser usada como API disponível. |
+| **Não disponível** | Recurso que não deve ser anunciado como completo sem implementação e integração correspondentes. |
+
+## Documentação oficial
+
+A referência completa está em **[pimcorddocs-pvmazbtg.manus.space](https://pimcorddocs-pvmazbtg.manus.space/)**. Ela foi organizada para seguir o fluxo **Descobrir → Entender → Copiar → Executar → Aprender**:
+
+| Área | Conteúdo |
+| --- | --- |
+| [Comece aqui](https://pimcorddocs-pvmazbtg.manus.space/comecar) | Introdução, instalação, primeiro bot e próximos passos. |
+| [Guias](https://pimcorddocs-pvmazbtg.manus.space/guias/comandos) | Comandos, eventos, mensagens, interações, segurança, configuração e voz. |
+| [Receitas](https://pimcorddocs-pvmazbtg.manus.space/receitas/criar-comando) | Soluções pequenas para tarefas reais, com código copiável. |
+| [API](https://pimcorddocs-pvmazbtg.manus.space/api) | Classes, funções, métodos, assinaturas, heranças e docstrings extraídas do código. |
+| [Migração](https://pimcorddocs-pvmazbtg.manus.space/migrar) | Comparação factual com discord.py, sem prometer compatibilidade drop-in. |
+| [FAQ](https://pimcorddocs-pvmazbtg.manus.space/faq) | Respostas verificadas para instalação, token, intents, erros e versão. |
+| [Desenvolvimento](https://pimcorddocs-pvmazbtg.manus.space/desenvolvimento) | Arquitetura, limites, contribuição e separação entre uso e planejamento. |
+
+A documentação fonte e os relatórios técnicos estão em [`docs/`](docs/). Arquivos que mencionam 0.7.0 ou outras versões futuras são históricos ou de desenvolvimento e estão marcados para não confundirem a versão publicada 0.6.9.
 
 ## Exemplos
 
-Os exemplos funcionais estão em [`examples/`](examples/):
+Os exemplos funcionais estão em [`examples/`](examples/). Eles não contêm tokens reais e devem ser lidos junto com a referência da API:
 
-| Arquivo | Conteúdo |
+| Arquivo | Demonstra |
 | --- | --- |
-| [`bot_basico.py`](examples/bot_basico.py) | Bot mínimo com comando prefixado e evento `pronto`. |
+| [`bot_basico.py`](examples/bot_basico.py) | Bot mínimo, comando prefixado e evento `pronto`. |
 | [`bot_completo.py`](examples/bot_completo.py) | Comandos híbridos, slash, aliases e purga limitada. |
-| [`comandos_slash.py`](examples/comandos_slash.py) | Configuração de aplicação e sincronização de comandos slash. |
+| [`comandos_slash.py`](examples/comandos_slash.py) | Configuração e sincronização de comandos slash. |
 | [`interacoes.py`](examples/interacoes.py) | View com botão, adiamento e follow-up efêmero. |
 
-Cada exemplo deve continuar compatível com a API real presente no pacote. Nenhum exemplo deve conter tokens reais.
+## Para quem vem do discord.py
 
-## Documentação
+Pimcord possui conceitos semelhantes, mas não é uma substituição drop-in. Os nomes e contratos devem ser consultados no catálogo antes de portar um handler. A [área de migração](https://pimcorddocs-pvmazbtg.manus.space/migrar) cobre equivalências confirmadas para Bot, comandos, eventos, contexto, interações, intents e transporte.
 
-A documentação oficial navegável está em [pimcorddocs-pvmazbtg.manus.space](https://pimcorddocs-pvmazbtg.manus.space). Ela possui índice completo da API, páginas por módulo, assinaturas e docstrings extraídas do pacote, guias de primeiro bot, comandos, interações, segurança e voz, busca semântica e changelog.
+## Desenvolvimento e contribuição
 
-O material fonte existente também está em [`docs/`](docs/), além dos documentos históricos na raiz. Não remova relatórios, matrizes ou evidências sem revisar suas dependências e seu valor de auditoria.
+Leia [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md) e [`docs/README.md`](docs/README.md) antes de abrir uma alteração. Mudanças devem preservar a API existente quando possível, incluir testes determinísticos sem rede, atualizar a documentação em português e explicar qualquer alteração de contrato.
 
-A documentação específica de funcionalidades assistidas por IA continua em [`docs/IA_E_BOT_PRONTO.md`](docs/IA_E_BOT_PRONTO.md). O site público de referência acima foi deliberadamente mantido fora desse escopo editorial.
-
-## Testes e qualidade
-
-Para instalar as dependências de desenvolvimento e executar a suíte offline:
+Para trabalhar no código localmente:
 
 ```bash
+git clone https://github.com/buenoseva521-lgtm/pimcord.git
+cd pimcord
+python -m venv .venv
+source .venv/bin/activate
 python -m pip install -e ".[testes]"
 python -m pytest -q
 python -m build
 ```
 
-A suíte inclui contratos para núcleo, eventos, gateway, REST, interações, segurança, sharding, tarefas, voz, SQLite e regressões. Alguns cenários dependem de bibliotecas opcionais ou de capacidades externas; o resultado deve ser reportado sem transformar testes offline em prova de interoperabilidade completa com o Discord.
+Nunca inclua tokens, senhas, chaves, dumps privados, `.env` ou credenciais em um commit. Para bugs, informe a versão, o menor caso reproduzível, o comportamento esperado e um traceback sem dados sensíveis.
 
-## Contribuindo
+## Qualidade
 
-Leia [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md) e a documentação antes de propor mudanças. Pull requests devem preservar a API existente quando possível, incluir testes determinísticos sem rede, atualizar a documentação em português e explicar qualquer mudança de contrato. Nunca inclua tokens, senhas, chaves, dumps privados ou arquivos de ambiente.
+O CI executa a suíte offline, valida empacotamento e confirma a importação e a versão do pacote em Python 3.11, 3.12 e 3.13. Testes offline comprovam contratos locais; não devem ser tratados como prova de interoperabilidade completa com todos os serviços externos do Discord.
 
-Para relatar um bug, use o template de issue e informe a versão, o menor caso reproduzível, o comportamento esperado e o traceback sem dados sensíveis. Para propor um recurso, explique primeiro o problema, depois a API e o impacto arquitetural.
+## Links oficiais
+
+- [Documentação oficial](https://pimcorddocs-pvmazbtg.manus.space/)
+- [PyPI — pimcord 0.6.9](https://pypi.org/project/pimcord/)
+- [Repositório GitHub](https://github.com/buenoseva521-lgtm/pimcord)
+- [Changelog](CHANGELOG.md)
+- [Licença MIT](LICENSE)
 
 ## Licença
 
 O Pimcord é distribuído sob a licença [MIT](LICENSE).
-
-## Links de publicação
-
-| Recurso | Estado |
-| --- | --- |
-| Repositório GitHub | Repositório oficial: [github.com/buenoseva521-lgtm/pimcord](https://github.com/buenoseva521-lgtm/pimcord). |
-| Documentação oficial | [pimcorddocs-pvmazbtg.manus.space](https://pimcorddocs-pvmazbtg.manus.space). |
-| PyPI | Ainda não confirmado; não trate o link como prova de publicação. |
